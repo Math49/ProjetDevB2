@@ -1,3 +1,3 @@
 # ProjetDevB2
 
-Mathis, Samuel, Florian, Adrien, Samuel, Nicolasgfdgfd
+Mathis, Samuel, Florian, Adrien, Samuel, Nicolas
