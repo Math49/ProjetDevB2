@@ -1,0 +1,120 @@
+@import "../../__variables.scss";
+
+body {
+  background-color: $clr-grey;
+}
+
+.global-wrapper {
+  max-width: calc(1440px - (64px * 2));
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.btn {
+  font-size: 1.125rem;
+  padding: 0.5rem;
+  text-decoration: none;
+  color: $clr-white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+
+  &.bg-blue {
+    background-color: $clr-dark-blue;
+    &:hover {
+      background-color: $clr-orange;
+    }
+  }
+  &.bg-orange {
+    background-color: $clr-orange;
+    &:hover {
+      background-color: $clr-dark-blue;
+    }
+  }
+}
+
+.submenu-title {
+  color: $clr-orange;
+  font-size: 1rem;
+}
+
+.single-wrapper {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  .single-left {
+    max-width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    .single-left__btn {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .single-project {
+      padding: 1.5rem 1rem;
+      background-color: $clr-white;
+      border-radius: 15px;
+      .single-project__title {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .single-project__content{
+        .single-project__participant{
+            ul{
+                display: flex;
+                flex-direction: column;
+                gap: .5rem;
+                li{
+                    display: flex;
+                    flex-direction: row;
+                    align-items: center;
+                    gap: .5rem;
+                    position: relative;
+
+                    &::before{
+                        content: "●";
+                        position: absolute;
+                        left: -1rem;
+                    }
+                }
+            }
+        }
+        .single-project__competences{
+            .competences{
+                display: flex;
+                flex-direction: row;
+                gap: .5rem;
+                flex-wrap: wrap;
+
+            }
+        }
+      }
+      .competence{
+        padding: .5rem;
+        background-color: $clr-blue;
+        color: $clr-white;
+        width: fit-content;
+        border-radius: 5px;
+        margin: 0;
+    }
+        .is-chef-project{
+            padding: .5rem;
+            background-color: $clr-grey;
+            color: $clr-orange;
+            width: fit-content;
+            border-radius: 5px;
+            margin: 0;
+        }
+    }
+  }
+  .single-right {
+  }
+}
