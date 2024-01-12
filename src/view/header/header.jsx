@@ -20,18 +20,10 @@ export default function Header() {
       <div class="card-container">
         <div class="card">
           <div class="card-title">Carte 1</div>
-          <hr/>
-
-          <p>Informations</p>
-
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati
-            impedit eos, error explicabo exercitationem aperiam, animi numquam
-            rerum officiis sunt quod sed eligendi. Aliquam similique rem
-            reiciendis officia illum itaque.
-          </p>
-
-          <p>Informations</p>
+          <hr />
+          <div class="texte">
+            <p>Informations</p>
+          </div>
 
           <p>
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati
@@ -40,8 +32,19 @@ export default function Header() {
             reiciendis officia illum itaque.
           </p>
 
-          <p>competance</p>
+          <div class="texte">
+            <p>Informations</p>{" "}
+          </div>
 
+          <p>
+            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Obcaecati
+            impedit eos, error explicabo exercitationem aperiam, animi numquam
+            rerum officiis sunt quod sed eligendi. Aliquam similique rem
+            reiciendis officia illum itaque.
+          </p>
+          <div class="texte">
+            <p>competance</p>{" "}
+          </div>
         </div>
       </div>
     </body>
