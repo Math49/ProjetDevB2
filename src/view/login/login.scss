@@ -1,5 +1,25 @@
-@import '__variables.scss';
+@import '../../__variables.scss';
 
-p {
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    background-color: $clr-blue;
     font-family: $ff-txt;
+}
+
+header {
+    display: none;
 }
