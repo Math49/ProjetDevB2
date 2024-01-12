@@ -31,9 +31,51 @@
 
 .card p {
     text-align: justify;
-    font-style: italic;
+
 }
 
 .card-title p {
+    color: #cc2020;
+    font-style: italic;
+
+}
+
+.texte{
     color: orange;
+    font-style: italic;
+}
+
+.title-row{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    padding-bottom: 8px;
+    border-bottom:black solid 1px;
+}
+
+.cmp {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    text-wrap: wrap;
+
+    
+}
+
+.cmp div {
+    margin-right: 10px; 
+}
+
+.cmp p {
+    margin: 0;
+    color: white;
+    background-color: rgb(35, 83, 116);
+    border-radius: 40px;
+    transition: background-color 0.3s ease;
+    padding: 7px;
+}
+
+.cmp:hover {
+    color: white;
+    transition: background-color 0.3s ease;
 }
