@@ -42,7 +42,6 @@ export default function Header() {
 
           <p>competance</p>
 
-          <p></p>
         </div>
       </div>
     </body>
