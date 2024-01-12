@@ -4,20 +4,20 @@ body {
     font-family: Arial, sans-serif;
 }
 
-header{
+header {
     background-color: orange;
     padding: 10px;
     box-sizing: border-box;
-    position: relative; 
+    position: relative;
 
-    nav{
+    nav {
         padding: 25px;
         display: flex;
         flex-direction: row-reverse;
         margin-right: 40px;
         align-items: center;
-        
-        a{
+
+        a {
             text-decoration: none;
             color: white;
             font-weight: bold;
@@ -26,90 +26,37 @@ header{
             transition: background-color 0.3s ease;
             margin-right: 40px;
 
-            &:hover{
+            &:hover {
                 background-color: white;
                 color: orange;
             }
         }
-        h1{
+
+        h1 {
             color: white;
-             position: relative;
-            right: 350px; 
+            position: relative;
+            right: 350px;
         }
+
         img {
-        margin-left: 100px;
-        width: 65px;
-        height: 65px;
+            margin-left: 100px;
+            width: 65px;
+            height: 65px;
         }
-        .img_header{
+
+        .img_header {
             img {
                 margin-left: 100px;
                 width: 65px;
                 height: 65px;
             }
-        } 
-
-        .logo img {
-            width: 80px; 
-            height: 80px; 
-            position: relative;
-            right: 700px; 
         }
     }
 }
 
-
-
-
-.card-container {
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    margin: 20px;
-
-    .card {
-        flex-basis: calc(33.3333% - 20px); 
-        margin: 10px;
-        padding: 20px;
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        border-radius: 8px;
-        text-align: center;
-        transition: transform 0.3s ease; 
-
-        .card-title {
-            font-size: 18px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            color: black;
-            text-align: justify;
-            
-          }    
-      }
-      .card:hover {
-        transform: scale(1.05);
-      }
-    
-     
-      .card-content {
-        font-size: 16px;
-        color: #555;
-        text-align: justify;
-        font-weight: bold;
-      }
-    
-    .card p{
-        text-align: justify;
-    }
-    .card-title p{
-        color: orange;
-    }
-  }
-
- 
-.texte{
-    font-style: italic;
-    color: orange;
+.logo img {
+    width: 80px;
+    height: 80px;
+    position: relative;
+    right: 700px;
 }
-
-
-     
