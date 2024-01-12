@@ -16,10 +16,25 @@ img {
 }
 
 body {
-    background-color: $clr-blue;
     font-family: $ff-txt;
 }
 
 header {
     display: none;
+}
+
+main {
+
+    padding: 4rem;
+
+    min-height: 100svh;
+
+    background: rgb(0,84,105);
+    background: radial-gradient(circle, darken($clr-blue, 3%) 0%, $clr-blue 100%);
+
+    .logo {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        width: 200px;
+    }
 }
