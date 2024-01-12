@@ -11,7 +11,7 @@ function App() {
       <h1>ça fonctionne !!</h1>
       <Header/>
       <Routes>
-        <Route path='/' element={<DataDisplay/>} />
+        <Route path='/' element={""} />
       </Routes>
     </div>
   );

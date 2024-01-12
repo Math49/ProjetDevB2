@@ -7,7 +7,7 @@ const DataDisplay = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:3000/data');
+        const response = await axios.get('http://localhost:3000/importProjet');
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data: ", error);
@@ -19,9 +19,6 @@ const DataDisplay = () => {
 
   return (
     <div>
-      {data.map((item, index) => (
-        <div key={index}>{item.name} | {item.age}</div>
-      ))}
     </div>
   );
 }
