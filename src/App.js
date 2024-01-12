@@ -1,7 +1,6 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import './App.scss';
 import Header from "./view/header/header";
-import DataDisplay from "./components/test";
 import ListProjet from "./view/listProjet/listProjet";
 import Login from "./view/login/login";
 
