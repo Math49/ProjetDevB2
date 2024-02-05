@@ -1,41 +1,89 @@
-import "./listProjet.scss"
-import ProjetCard from "../../components/projetCard/projetCard"
+import "./listProjet.scss";
+import ProjetCard from "../../components/projetCard/projetCard";
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import { Routes, Route, useParams, useNavigation, useNavigate, useLocation } from "react-router-dom";
+import Checkbox from "./checkbox";import { Routes, Route, useParams, useNavigation, useNavigate, useLocation } from "react-router-dom";
 
 
 
 export default function ListProjet() {
+    const [data, setData] = useState([]);
+    const [q, setQ] = useState("");
+    const [categories, setCategories] = useState({
+        design: false,
+        dev: false
+    });
 
-    const data = [{competences:{"test1.1":false,"test1":true},objectifs:"test1",concept:"test1",description:"test1",id:1,nom:"test1"},{objectifs:"test2",concept:"test2",description:"test2",id:2,nom:"test2",competences:{"test2":true,"test2.1":true}}]
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/importProjet');
+                setData(response.data);
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
 
-    // const [data, setData] = useState([]);
+        fetchData();
+    }, []);
 
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //     try {
-    //         const response = await axios.get('http://localhost:3000/importProjet');
-    //         setData(response.data);
-    //     } catch (error) {
-    //         console.error("Error fetching data: ", error);
-    //     }
-    //     };
+    const handleChange = e => {
+        const { name, checked } = e.target;
 
-    //     fetchData();
-    // }, []);
+        setCategories(prev => ({
+            ...prev,
+            [name]: checked
+        }));
+    };
 
-    const navigate = useNavigate();
+    const filterProjects = projects => {
+        return projects.filter(project => {
+            const matchesName = q ? project.nom.toLowerCase().includes(q.toLowerCase()) : true;
+            const competences = project.competences || {};
+            const checkedCategories = Object.entries(categories).filter(([_, value]) => value).map(([key]) => key);
+            const matchesCategories = checkedCategories.length > 0 ? checkedCategories.some(category => competences[category]) : true;
 
-    const navigateToProject = (project) => {
-        navigate(`/projet/${project.id}`, { state: {project: project} })
-    }
+            return matchesName && matchesCategories;
+        });
+    };
 
-    return  <div className="card-container">
-                {data.map((obj) =>
-                    <a onClick={() => navigateToProject(obj)}>
-                        <ProjetCard data={obj}/>
-                    </a>
+    return (
+        <div className="listing-projet">
+            <div className="filtre-menu">
+                <h2>Filtrer les projets</h2>
+                <div className="search-wrapper">
+                    <label htmlFor="search-form">
+                        <input
+                            type="search"
+                            name="search-form"
+                            id="search-form"
+                            className="search-input"
+                            placeholder="Search for..."
+                            value={q}
+                            onChange={(e) => setQ(e.target.value)}
+                        />
+                    </label>
+                </div>
+                <Checkbox
+                    id="design"
+                    title="Design"
+                    name="design"
+                    checked={categories.design}
+                    handleChange={handleChange}
+                />
+                <Checkbox
+                    id="dev"
+                    title="Dev"
+                    name="dev"
+                    checked={categories.dev}
+                    handleChange={handleChange}
+                />
+            </div>
+            <div className="card-container">
+                {filterProjects(data).map((obj) => 
+                    <ProjetCard key={obj.id} data={obj}/>
                 )}
             </div>
+        </div>
+    );
 }

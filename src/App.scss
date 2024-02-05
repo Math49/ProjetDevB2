@@ -1,5 +1,19 @@
 @import '__variables.scss';
 
+body{
+  min-height: 100svh;
+}
+
+#root{
+  min-height: 100svh;
+  height: 100%;
+}
+
+.App{
+  min-height: 100svh;
+  height: 100%; 
+}
+
 h1{
   color: red;
 }

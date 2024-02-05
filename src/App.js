@@ -3,6 +3,7 @@ import './App.scss';
 import Header from "./view/header/header";
 import DataDisplay from "./components/test";
 import ListProjet from "./view/listProjet/listProjet";
+import AddProjet from "./view/addProjet/addProjet";
 import SingleProject from "./components/singleProject/singleProject";
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<ListProjet/>} />
+        <Route path="/addprojet" element={<AddProjet/>} />
         <Route path='/projet/:projectId' element={<SingleProject/>} />
       </Routes>
     </div>

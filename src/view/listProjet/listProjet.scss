@@ -1,8 +1,24 @@
+@import "../../__variables";
+
+.listing-projet{
+    display: flex;
+    background-color: $clr-grey;
+    min-height: 100svh;
+
+}
+
+.filtre-menu{
+    width: 20%;
+    background-color: $clr-white;
+}
+
 
 .card-container {
+    width: 80%;
     display: flex;
-    flex-wrap: nowrap;
-    justify-content: space-around;
-    margin: 20px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin: 32px;
 }
 

@@ -1,39 +1,73 @@
+@import "../../__variables";
+
+
 .card {
-    flex-basis: calc(33.3333% - 20px);
-    margin: 10px;
-    padding: 20px;
+    width: 324px;
+    height: 300px;
+    padding: 16px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    text-align: center;
     transition: transform 0.3s ease;
+    background-color: $clr-white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 11px;
 
-}
-
-.card:hover {
+    &:hover{
     transform: scale(1.05);
+    }
+
+    .card-title {
+        font-size: 18px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: black;
+    }
+    
+    .row{
+
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        p {
+            text-align: justify;
+            margin: 0;
+            font-size: 14px
+        }
+        h3{
+            margin: 0;
+            color: $clr-orange; 
+            font-weight: 400;
+            font-size: 14px;
+        }
+    }
+    
+    .title-row{
+        justify-content: space-between;
+        display: flex;
+        align-items: center;
+        padding-bottom: 8px;
+        border-bottom:black solid 1px;
+    }
+    
+    .cmp {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        text-wrap: wrap;
+
+        p {
+            vertical-align: middle;
+            text-align: center;
+            margin: 0;
+            color: $clr-white;
+            background-color: #2D72C4;
+            border-radius: 4px;
+            transition: background-color 0.3s ease;
+            width: 76px;
+            padding: 4px;
+        }
+    }
 }
 
-.card-title {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: black;
-    text-align: justify;
-
-}
-
-.card-content {
-    font-size: 16px;
-    color: #555;
-    text-align: justify;
-    font-weight: bold;
-}
-
-.card p {
-    text-align: justify;
-    font-style: italic;
-}
-
-.card-title p {
-    color: orange;
-}
