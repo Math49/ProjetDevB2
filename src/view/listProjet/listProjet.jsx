@@ -3,7 +3,7 @@ import ProjetCard from "../../components/projetCard/projetCard";
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Checkbox from "./checkbox";
-import { Routes, Route, useParams, useNavigation, useNavigate, useLocation } from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 
 
@@ -20,6 +20,7 @@ export default function ListProjet() {
             try {
                 const response = await axios.get('http://localhost:3000/importProjet');
                 setData(response.data);
+                console.log(response.data);
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }
