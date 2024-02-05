@@ -1,7 +1,6 @@
 import "./projetCard.scss";
 
 export default function ProjetCard({ data }) {
-    console.log(data);
     const competences = Object.entries(data.competences).filter((c) => c[1]);
 
 

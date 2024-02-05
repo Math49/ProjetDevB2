@@ -8,7 +8,6 @@ import {useNavigate} from "react-router-dom";
 
 
 export default function ListProjet() {
-    console.log("fonction");
 
     const [data, setData] = useState([]);
     const [q, setQ] = useState("");
