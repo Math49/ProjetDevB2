@@ -6,38 +6,20 @@ import ListProjet from "./view/listProjet/listProjet";
 import SingleProject from "./components/singleProject/singleProject";
 
 
-// const RenderTest = () => {
-//   const { projectId } = useParams();
-//   const location = useLocation();
+const RenderTest = () => {
+  const { projectId } = useParams();
+  const location = useLocation();
 
-//   console.log(projectId);
-//   return (
-//     <div>
-//       <h1>{projectId}</h1>
-//       {location?.state?.project && (
-//         <div>{location.state.project.name}</div>
-//       )}
-//       {location?.state?.gender && (
-//         <div>{location.state.gender.toString()}</div>  
-//       )}
+  console.log(projectId);
+  return (
+    <div>
+      <h1>{projectId}</h1>
+        <div>{location.state.project.nom}</div>
+        <div>{location.state.project.description}</div>  
       
-//     </div>
-//   )
-// }
-// const ProjectsScreen = () => {
-//   const navigate = useNavigate();
-
-//   const navigateToProject = (project) => {
-//     navigate(`/projet/${project.id}`, { state: {project: project} })
-
-//   }
-
-//   return (
-//     <div>
-//       <button onClick={() => navigateToProject(project)}>Je veux voir mon projet</button>
-//     </div>
-//   )
-// }
+    </div>
+  )
+}
 
 function App() {
 
@@ -47,9 +29,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<ListProjet/>} />
-        {/* <Route path='/projets/' element={<ProjectsScreen/>} />
-        <Route path='/projet/:projectId' element={<RenderTest/>} /> */}
-        <Route path='/projets' element={<SingleProject/>} />
+        <Route path='/projet/:projectId' element={<SingleProject/>} />
       </Routes>
     </div>
   );

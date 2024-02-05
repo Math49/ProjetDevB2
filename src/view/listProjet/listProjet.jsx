@@ -2,6 +2,8 @@ import "./listProjet.scss"
 import ProjetCard from "../../components/projetCard/projetCard"
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
+import { Routes, Route, useParams, useNavigation, useNavigate, useLocation } from "react-router-dom";
+
 
 
 export default function ListProjet() {
@@ -23,9 +25,17 @@ export default function ListProjet() {
     //     fetchData();
     // }, []);
 
+    const navigate = useNavigate();
+
+    const navigateToProject = (project) => {
+        navigate(`/projet/${project.id}`, { state: {project: project} })
+    }
+
     return  <div className="card-container">
                 {data.map((obj) =>
-                    <ProjetCard data={obj}/>
+                    <a onClick={() => navigateToProject(obj)}>
+                        <ProjetCard data={obj}/>
+                    </a>
                 )}
             </div>
 }
