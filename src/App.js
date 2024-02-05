@@ -5,22 +5,6 @@ import DataDisplay from "./components/test";
 import ListProjet from "./view/listProjet/listProjet";
 import SingleProject from "./components/singleProject/singleProject";
 
-
-const RenderTest = () => {
-  const { projectId } = useParams();
-  const location = useLocation();
-
-  console.log(projectId);
-  return (
-    <div>
-      <h1>{projectId}</h1>
-        <div>{location.state.project.nom}</div>
-        <div>{location.state.project.description}</div>  
-      
-    </div>
-  )
-}
-
 function App() {
 
 
