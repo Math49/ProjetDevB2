@@ -73,6 +73,35 @@ export default function SingleProject() {
         <div className="single-right">
             <div className="single-historic">
                 <div className="submenu-title">Historique de la progression</div>
+                <div className="commit">
+                    <span className="commit__date">XX/XX/XXXX</span>
+                    <p className="commit__content">
+                        Lorem ipsum dolor sit amet consectetur. Amet donec pulvinar ornare quis volutpat lectus. Quam lobortis duis semper orci dictum. Nunc sagittis amet molestie mauris bibendum elit tellus amet nunc. Porta at sed ornare augue vulputate dui malesuada. Tellus nunc risus.
+                    </p>
+                </div>
+                <div className="commit">
+                    <span className="commit__date">XX/XX/XXXX</span>
+                    <p className="commit__content">
+                        Lorem ipsum dolor sit amet consectetur. Amet donec pulvinar ornare quis volutpat lectus. Quam lobortis duis semper orci dictum. Nunc sagittis amet molestie mauris bibendum elit tellus amet nunc. Porta at sed ornare augue vulputate dui malesuada. Tellus nunc risus.
+                    </p>
+                </div>
+                <div className="commit">
+                    <span className="commit__date">XX/XX/XXXX</span>
+                    <p className="commit__content">
+                        Lorem ipsum dolor sit amet consectetur. Amet donec pulvinar ornare quis volutpat lectus. Quam lobortis duis semper orci dictum. Nunc sagittis amet molestie mauris bibendum elit tellus amet nunc. 
+                    </p>
+                </div>
+            </div>
+            <div className="actualisation-project">
+                <div className="submenu-title">Actualiser la progression</div>
+                <div className="input-date">
+                    <label htmlFor="date">Date de la mise à jour</label>
+                    <input type="date" name="date" id="date" />
+                </div>
+                <div className="input-commit">
+                    <label htmlFor="commentaire">Commentaire</label>
+                    <textarea name="commentaire" id="commentaire" cols="30" rows="10"></textarea>
+                </div>
             </div>
         </div>
     </div>
