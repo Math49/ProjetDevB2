@@ -46,7 +46,7 @@ export default function AddProjet() {
 
     return (
         <div>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit} className="formulaire">
                 <label>
                     Concept:
                     <input type="text" name="concept" value={projetData.concept} onChange={handleInputChange} />
@@ -73,7 +73,7 @@ export default function AddProjet() {
                     <input type="checkbox" name="design" checked={projetData.competences.design} onChange={handleInputChange} /> Design
                 </label>
                 <br />
-                <button type="submit">Ajouter</button>
+                <button className="submit-button"  type="submit">Ajouter</button>
             </form>
         </div>
     );
