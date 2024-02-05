@@ -2,7 +2,8 @@ import "./listProjet.scss";
 import ProjetCard from "../../components/projetCard/projetCard";
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
-import Checkbox from "./checkbox";import { Routes, Route, useParams, useNavigation, useNavigate, useLocation } from "react-router-dom";
+import Checkbox from "./checkbox";
+import { Routes, Route, useParams, useNavigation, useNavigate, useLocation } from "react-router-dom";
 
 
 
@@ -47,6 +48,12 @@ export default function ListProjet() {
         });
     };
 
+    const navigate = useNavigate();
+
+    const navigateToProject = (project) => {
+        navigate(`/projet/${project.id}`, { state: {project: project} })
+    }
+
     return (
         <div className="listing-projet">
             <div className="filtre-menu">
@@ -80,8 +87,10 @@ export default function ListProjet() {
                 />
             </div>
             <div className="card-container">
-                {filterProjects(data).map((obj) => 
-                    <ProjetCard key={obj.id} data={obj}/>
+                {filterProjects(data).map((obj) =>
+                    <a onClick={() => navigateToProject(obj)}>
+                        <ProjetCard key={obj.id} data={obj}/>
+                    </a>
                 )}
             </div>
         </div>
