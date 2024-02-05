@@ -1,14 +1,23 @@
 import './login.scoped.scss'
 export default function Login(){
 
-    // Récupère les infos à l'envoi du formulaire
-        const formSubmit = (event) => {
-            event.preventDefault();
-            
+    const formSubmit = (event) => {
+        
+        // Empêche le formulaire de s'effacer avant la récup des infos
+        event.preventDefault();
+        
+            // Récupère les infos à l'envoi du formulaire
             const userEmail = event.target.elements.userEmail.value
             const userPassword = event.target.elements.userPassword.value
+            let rememberMe = false
 
-            console.log("Email:", userEmail, "Password:", userPassword);
+            if (event.target.elements.rememberMeCheckbox.checked) {
+                rememberMe = true
+            }
+
+            console.log("Email:", userEmail, "\nPassword:", userPassword, "\nWants to be remembered:", rememberMe);
+
+            event.target.reset();
 
         }
 
@@ -41,7 +50,6 @@ export default function Login(){
                             <input type="checkbox" name="remember-me" id="rememberMeCheckbox" />
                             <label htmlFor="rememberMeCheckbox">Se souvenir de moi</label>
                         </div>
-                        <a href="">Créer un compte</a>
                     </div>
 
                 </form>

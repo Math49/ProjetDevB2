@@ -124,6 +124,15 @@ a {
             font-size: 30px;
             font-weight: 600;
             color: $clr-white;
+
+            cursor: pointer;
+            
+            transition: transform .15s ease-out;
+
+            &:active {
+                transform: scale(.99);
+            }
+
         }
 
         .auth-form-bot-row {
