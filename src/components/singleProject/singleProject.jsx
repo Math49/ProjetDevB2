@@ -1,9 +1,8 @@
 import "./singleProject.scss";
-import { useParams, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export default function SingleProject() {
 
-    const { projectId } = useParams();
     const location = useLocation();
 
     const competences = Object.entries(location.state.project.competences).filter((c) => c[1])

@@ -17,8 +17,8 @@ export const AuthProvider = ({ children }) => {
             setLoading(false);
         });
 
-        return unsubscribe; // Cette fonction est appelée pour se désabonner de l'écouteur à la suppression du composant
-    }, []);
+        return unsubscribe;
+    }, [ auth]);
 
     return (
         <AuthContext.Provider value={{ currentUser }}>

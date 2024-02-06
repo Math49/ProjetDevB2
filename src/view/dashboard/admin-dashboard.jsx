@@ -11,8 +11,8 @@ import Comptes from "../../components/dashboardOnglet/comptes";
 
 export default function AdminDashboard() {
     const [data, setData] = useState([]);
-    const [q, setQ] = useState("");
-    const [categories, setCategories] = useState({
+    const [q] = useState("");
+    const [categories] = useState({
         design: false,
         dev: false,
     });
@@ -29,15 +29,6 @@ export default function AdminDashboard() {
 
         fetchData();
     }, []);
-
-    const handleChange = (e) => {
-        const { name, checked } = e.target;
-
-        setCategories((prev) => ({
-        ...prev,
-        [name]: checked,
-        }));
-    };
 
     const filterProjects = (projects) => {
         return projects.filter((project) => {

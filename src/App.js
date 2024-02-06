@@ -1,4 +1,4 @@
-import { Routes, Route, useParams, useNavigation, useNavigate, useLocation } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import './App.scss';
 import Header from "./view/header/header";
 import ListProjet from "./view/listProjet/listProjet";
