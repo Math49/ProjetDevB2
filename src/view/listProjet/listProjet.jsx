@@ -91,9 +91,9 @@ export default function ListProjet() {
             </div>
             <div className="card-container">
                 {filterProjects(data).map((obj) =>
-                    <a key={obj.uid} onClick={() => navigateToProject(obj)}>
+                    <button key={obj.uid} onClick={() => navigateToProject(obj)}>
                         <ProjetCard key={obj.uid} data={obj}/>
-                    </a>
+                    </button>
                 )}
             </div>
         </div>

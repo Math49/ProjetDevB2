@@ -1,24 +1,53 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './register.scoped.scss';
+import axios from 'axios';
+
 
 export default function Register() {
     const [passwordError, setPasswordError] = useState('');
+    const navigate = useNavigate();
 
-    // Récupère les infos à l'envoi du formulaire
-    const formSubmit = (event) => {
+
+    const formSubmit = async (event) => {
         event.preventDefault();
 
         const userEmail = event.target.elements.userEmail.value;
         const userPassword = event.target.elements.userPassword.value;
         const userConfirmPassword = event.target.elements.userPasswordv.value;
+        const prenom = event.target.elements.userfirstName.value;
+        const nom = event.target.elements.userName.value;
+
+        if (userPassword.length < 6) {
+            setPasswordError('Le mot de passe doit contenir au moins 6 caractères');
+            return;
+        }
 
         if (userPassword !== userConfirmPassword) {
             setPasswordError('Les mots de passe ne correspondent pas');
             return;
         }
-
-        console.log("Email:", userEmail, "Password:", userPassword);
         
+        setPasswordError('');
+
+        console.log(userEmail, userPassword, prenom, nom);
+        try {
+            await axios.post('http://localhost:3000/signup', {
+                userEmail,
+                userPassword,
+                prenom,
+                nom
+            });
+
+            // Redirect to /admin-dashboard/comptes
+            navigate("/admin-dashboard/comptes");
+
+            window.alert('Compte créé avec succès');
+            
+        } catch (error) {
+            console.error('Erreur lors de la création du compte', error);
+            window.alert('Erreur lors de la création du compte');
+        }
     };
 
     return (
