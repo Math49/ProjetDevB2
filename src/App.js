@@ -21,9 +21,10 @@ function App() {
           <Route index element={<ListProjet/>} />
           <Route path="/addprojet" element={<AddProjet/>} />
           <Route path='/projet/:projectId' element={<SingleProject/>} />
+          <Route path='/admin-dashboard/*' element={<AdminDashboard/>} />
+          <Route path='/register' element={<Register/>} />
         </Route>
-        <Route path='/admin-dashboard/*' element={<AdminDashboard/>} />
-        <Route path='/register' element={<Register/>} />
+        <Route path='/login' element={<Login/>} />
       </Routes>
     </div>
   );
