@@ -24,7 +24,7 @@ a {
     text-decoration: none;
 }
 
-.login-main {
+.register-main {
 
     position: relative;
     
@@ -95,9 +95,9 @@ a {
 
                     &:focus + label,
                     &:not(:placeholder-shown) + label {
-                      transform: translateY(-225%) translateX(-1rem);
-                      font-size: 0.9em;
-                      color: $clr-dark-blue;
+                        transform: translateY(-225%) translateX(-1rem);
+                        font-size: 0.9em;
+                        color: $clr-dark-blue;
                     }
                 }
 

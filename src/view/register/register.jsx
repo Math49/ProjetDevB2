@@ -22,8 +22,8 @@ export default function Register() {
     };
 
     return (
-        <main className='login-main'>
-            <img src="espl logo.png" alt="logo ESPL" className='logo' />
+        <main className='register-main'>
+            <img src="/espl-logo.png" alt="logo ESPL" className='logo' />
             <div className="auth-form">
                 <h1>S'authentifier</h1>
                 <form onSubmit={formSubmit}>
