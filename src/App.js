@@ -1,10 +1,11 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route} from "react-router-dom";
 import './App.scss';
 import Header from "./view/header/header";
-import DataDisplay from "./components/test";
 import ListProjet from "./view/listProjet/listProjet";
 
 import AdminDashboard from "./view/dashboard/admin-dashboard";
+import Login from "./view/login/login";
+import Register from "./view/register/register";
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
       <Routes>
         <Route path='/' element={<ListProjet/>} />
         <Route path='/admin-dashboard/*' element={<AdminDashboard/>} />
+        <Route path='/register' element={<Register/>} />
       </Routes>
     </div>
   );
