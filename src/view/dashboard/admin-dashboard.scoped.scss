@@ -8,7 +8,13 @@
 
     display: flex;
 
+    @media screen and (width <= $mobile) {
+        flex-direction: column;
+    }
+
     .view-dashboard {
+
+        position: relative;
 
         padding: 2rem;
 
@@ -20,7 +26,63 @@
 
         max-height: calc($height-main - 4rem);
         overflow-y: scroll;
+
+        @media screen and (width <= $tablet) {
+            padding-top: 0;
+        }
+
+        .burger {
+
+            position: sticky;
+            inset: .00000000001rem auto auto .5rem;
+            width: 100%;
+            display: none;
+
+            
+            
+            .MuiSvg-burger {
+                width: 32px;
+                aspect-ratio: 1/1;
+            }
+            
+            @media screen and (width <= $tablet) {
+                display: flex;
+                justify-content: center;
+                background-color: $clr-grey;
+                padding-block: 1rem;
+                cursor: pointer;
+                z-index: 50;
+
+                path {
+                    transform: rotate(0deg) translate(0, 0);
+                    opacity: 1;
+                    transition: all .3s ease-in-out;
+                }
+                  
+                &.menu-opened {
+                    path:nth-child(1) {
+                        transform: rotate(45deg) translate(5px, -17px);
+                        transition: transform 0.3s ease-in-out;
+                    }
+                    
+                    path:nth-child(2) {
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in-out;
+                    }
+                    
+                    path:nth-child(3) {
+                        transform: rotate(-45deg) translate(-13px, 11px);;
+                        transition: transform 0.3s ease-in-out;
+                    }
+
+            }
+
+
+
+        }
+
     }
 
+}
 }
 

@@ -66,11 +66,24 @@ export default function AdminDashboard() {
         )
     }
 
+    const [isMenuOpened, setIsMenuOpened] = useState(false);
+
+    const toggleMenu = () => {
+        setIsMenuOpened(!isMenuOpened);
+    };
+
     return (
         <main class="admin-dashboard">
             
             <Sidebar />
             <div className="view-dashboard">
+                <div className={`burger ${isMenuOpened ? 'menu-opened' : ''}`} onClick={toggleMenu}>
+                    <svg class="menu-burger" xmlns="http://www.w3.org/2000/svg" width="32px" height="32px" viewBox="0 0 24 24" fill="none">
+                        <path d="M4 18L20 18" stroke="#013746" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M4 12L20 12" stroke="#013746" stroke-width="2" stroke-linecap="round"/>
+                        <path d="M4 6L20 6" stroke="#013746" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </div>
                 <Routes>
                     <Route path="/" element={<Index/>} />
                     <Route path="/notifications" element={<Notifications/>} />

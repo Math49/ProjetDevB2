@@ -3,10 +3,14 @@
 .sidebar {
     position: relative;
     inset: auto;
-    width: 20%;
+    width: 20rem;
     min-height: $height-main;
 
     background-color: $clr-white;
+
+    @media screen and (width <= $tablet) {
+        display: none;
+    }
 
     .sidebar-menu {
 
@@ -39,7 +43,7 @@
 
             transition: border-right .1s ease-in-out;
 
-            &:hover, &:focus {
+            &:hover, &:focus, &:active, &.menu-active {
                 border-right: solid 3px $clr-orange;
             }
 
