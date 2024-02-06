@@ -1,0 +1,87 @@
+@import '../../_variables';
+
+.admin-user-card {
+    display: flex;
+    align-items: stretch;
+    gap: 2rem;
+
+    position: relative;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    background-color: $clr-white;
+
+    font-size: 18px;
+
+    .user-card-profile-picture img {
+        aspect-ratio: 1/1;
+        object-fit: contain;
+        width: 3rem;
+        border-radius: 100%;
+    }
+
+    .user-card-account-info {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        .user-card-mail {
+            color: $clr-dark-blue-faded;
+            font-size: 16px;
+        }
+
+    }
+
+    .user-card-role {
+        align-self: flex-end;
+    }
+
+    .context-menu {
+        position: absolute;
+        inset: 0 .5rem auto auto;
+        padding: .5rem 1rem;
+        cursor: pointer;
+
+    }
+
+    .context-menu-actions-wrapper {
+        position: absolute;
+        z-index: 100;
+        inset: auto 0 0 auto;
+        background-color: $clr-white;
+        border: black solid 1px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0 10px 10px 0;
+        padding-bottom: .5rem;
+
+        .context-menu-actions {
+            display: flex;
+            flex-direction: column;
+            
+            button {
+                font-family: $ff-txt;
+                background-color: unset;
+                border: unset;
+                cursor: pointer;
+                padding: .25rem .5rem;
+            }
+
+        }
+
+        .context-menu-close {
+            cursor: pointer;
+        }   
+
+    }
+
+    
+
+
+    transition: transform 0.3s ease;
+    
+    &:hover {
+        transform: scale(1.025);
+    }
+
+}

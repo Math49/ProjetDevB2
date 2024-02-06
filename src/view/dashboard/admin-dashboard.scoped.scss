@@ -18,13 +18,13 @@
 
         padding: 2rem;
 
-        width: 80%;
+        width: 100%;
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
         gap: 20px;
 
-        max-height: calc($height-main - 4rem);
+        max-height: calc($height-main);
         overflow-y: scroll;
 
         @media screen and (width <= $tablet) {
@@ -75,13 +75,20 @@
                         transition: transform 0.3s ease-in-out;
                     }
 
+                }
+
+
+
             }
-
-
 
         }
 
-    }
+        .comptes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+        }
 
 }
 }
