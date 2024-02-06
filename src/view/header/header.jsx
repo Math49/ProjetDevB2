@@ -3,18 +3,15 @@ import "./header.scss";
 export default function Header() {
   return (
     <header>
-      <nav>
-        <div className="img_header">
-          <img src="rond profil.png" alt="image" />
-        </div>
-        <a href="#">Se déconnecter</a>
-        <a href="/addprojet">Ajouter un projet</a>
+      <div className="title">
         <a href="/">
-          <div className="logo">
-            <img src="espl logo.png" alt="image" />
-          </div>
+          <img src="/espl-logo.png" alt="image" />
         </a>
-        <h1>BIENVENUE</h1>
+        <h1>ESLP hub</h1>
+      </div>
+      <nav className="nav">
+        <a href="/home">Ajouter un projet</a>
+        <button>compte</button>
       </nav>
     </header>
   );
