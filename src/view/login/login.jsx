@@ -27,7 +27,7 @@ export default function Login(){
 
         <main className='login-main'>
 
-            <img src="espl logo.png" alt="logo ESPL" className='logo' />
+            <img src="/espl-logo.png" alt="logo ESPL" className='logo' />
 
             <div className="auth-form">
 

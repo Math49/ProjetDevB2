@@ -20,18 +20,15 @@ export default function Header() {
   };
 
   return (
-    <header style={{ display: location.pathname === "/login" ? "none" : "block" }}>
-      <nav>
-        <div className="img_header">
-          <img src="rond profil.png" alt="image" />
-        </div>
+    <header style={{ display: location.pathname === "/login" ? "none" : "flex" }}>
+      <div className="title">
+        <img src="/espl-logo.png" alt="image" />
+        <h1>ESPL Hub</h1>
+      </div>
+      <nav className="nav">
+        <a href="#">Ajouter un projet</a>
         {currentUser && <h2>{currentUser.email}</h2>}
         <button onClick={handleLogout}>Se déconnecter</button>
-        <a href="#">Ajouter un projet</a>
-        <div className="logo">
-          <img src="espl logo.png" alt="image" />
-        </div>
-        <h1>BIENVENUE</h1>
       </nav>
     </header>
   );
