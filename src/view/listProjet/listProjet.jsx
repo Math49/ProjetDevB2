@@ -3,8 +3,12 @@ import ProjetCard from "../../components/projetCard/projetCard";
 import axios from 'axios';
 import React, { useState, useEffect } from 'react';
 import Checkbox from "./checkbox";
+import {useNavigate} from "react-router-dom";
+
+
 
 export default function ListProjet() {
+
     const [data, setData] = useState([]);
     const [q, setQ] = useState("");
     const [categories, setCategories] = useState({
@@ -17,6 +21,8 @@ export default function ListProjet() {
             try {
                 const response = await axios.get('http://localhost:3000/importProjet');
                 setData(response.data);
+                console.log("load");
+                console.log(response.data);
             } catch (error) {
                 console.error("Error fetching data: ", error);
             }
@@ -44,6 +50,12 @@ export default function ListProjet() {
             return matchesName && matchesCategories;
         });
     };
+
+    const navigate = useNavigate();
+
+    const navigateToProject = (project) => {
+        navigate(`/projet/${project.uid}`, { state: {project: project} })
+    }
 
     return (
         <div className="listing-projet">
@@ -78,8 +90,10 @@ export default function ListProjet() {
                 />
             </div>
             <div className="card-container">
-                {filterProjects(data).map((obj) => 
-                    <ProjetCard key={obj.id} data={obj}/>
+                {filterProjects(data).map((obj) =>
+                    <a key={obj.uid} onClick={() => navigateToProject(obj)}>
+                        <ProjetCard key={obj.uid} data={obj}/>
+                    </a>
                 )}
             </div>
         </div>

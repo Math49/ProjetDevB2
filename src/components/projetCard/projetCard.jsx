@@ -26,6 +26,9 @@ export default function ProjetCard({ data }) {
                     <p key={comp[0]}>{comp[0]}</p>
                 ))}
             </div>
+            <div>
+                
+            </div>
         </div>
     </div>
     );
