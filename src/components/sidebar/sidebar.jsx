@@ -1,5 +1,6 @@
 import './sidebar.scoped.scss';
 import { SidebarData } from './sidebarData';
+import { Link } from 'react-router-dom';
 
 export default function Sidebar(){
     return(
@@ -11,10 +12,10 @@ export default function Sidebar(){
             {SidebarData.map((val, key) => {
                 return (
                     <li key={key} className={`sidebar-menu-item ${window.location.pathname === val.link ? "menu-active" : ""}`}>
-                        <a href={val.link}>
+                        <Link to={val.link}>
                             {val.icon}
                             {val.title}
-                        </a>
+                        </Link>
                     </li>
                 )
             })}

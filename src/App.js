@@ -14,7 +14,7 @@ function App() {
       <Header/>
       <Routes>
         <Route path='/' element={<ListProjet/>} />
-        <Route path='/admin-dashboard' element={<AdminDashboard/>} />
+        <Route path='/admin-dashboard/*' element={<AdminDashboard/>} />
       </Routes>
     </div>
   );
