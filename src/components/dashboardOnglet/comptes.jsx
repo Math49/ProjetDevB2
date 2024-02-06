@@ -1,6 +1,26 @@
+
 import AdminUserCard from "../adminUserCard/adminUserCard"
+import axios from 'axios';
+import React, { useState, useEffect } from 'react';
 
 export default function Comptes() {
+
+    const [data, setData] = useState([]);
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/importUser');
+                setData(response.data);
+                console.log("load");
+                console.log(response.data);
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
+        fetchData();
+    }, []);
+
     return (
         <div className="comptes">
 
@@ -10,7 +30,9 @@ export default function Comptes() {
             </a>
 
             <div className="comptes-list">
-                <AdminUserCard/>
+            {data.map((obj) =>
+                <AdminUserCard key={obj.id} data={obj} />
+            )}
             </div>
 
 

@@ -22,7 +22,9 @@ export default function Header() {
   return (
     <header style={{ display: location.pathname === "/login" || location.pathname === "/register" ? "none" : "flex" }}>
       <div className="title">
-        <img src="/espl-logo.png" alt="logo" />
+        <a href="/">
+          <img src="/espl-logo.png" alt="logo" />
+        </a>
         <h1>ESPL Hub</h1>
       </div>
       <nav className="nav">

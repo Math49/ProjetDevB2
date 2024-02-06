@@ -2,10 +2,12 @@ import "./adminUserCard.scoped.scss";
 
 import React, { useState } from 'react';
 
-export default function AdminUserCard() {
+export default function AdminUserCard(data) {
 
         const [isModalOpen, setModalOpen] = useState(false);
         const toggleModal = () => setModalOpen(!isModalOpen);
+
+        const user = data.data;
 
     return (
 
@@ -14,11 +16,11 @@ export default function AdminUserCard() {
                     <img src="../../../defaultavatar.png" alt="Photo de profil de l'utilisateur" loading="lazy" />
                 </div>
                 <div className="user-card-account-info">
-                    <div className="user-card-name">LANDAIS Samuel</div>
-                    <div className="user-card-mail">samuel.landais.pro@gmail.com</div>
+                    <div className="user-card-name">{user.prenom} {user.nom}</div>
+                    <div className="user-card-mail">{user.email}</div>
                 </div>
                 <div className="user-card-role">
-                    Étudiant
+                    {user.roles}
                 </div>
                 <span class="context-menu" onClick={toggleModal} style={{ display: isModalOpen ? 'none' : 'inline' }}>...</span>
                 {isModalOpen && (
