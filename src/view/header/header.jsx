@@ -32,7 +32,7 @@ export default function Header() {
         <h1>ESPL Hub</h1>
       </div>
       <nav className="nav">
-        <a href="/">Ajouter un projet</a>
+        <a href="/addprojet">Ajouter un projet</a>
         {currentUser && <span className="current-email">{currentUser.email}</span>}
         <div className="profile-picture" onClick={toggleModal}>
           <img src="../../../defaultavatar.png" alt="" className="user-profile-picture" />

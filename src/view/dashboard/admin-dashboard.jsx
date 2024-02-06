@@ -11,49 +11,40 @@ import Comptes from "../../components/dashboardOnglet/comptes";
 
 export default function AdminDashboard() {
     const [data, setData] = useState([]);
-    const [q] = useState("");
-    const [categories] = useState({
-        design: false,
-        dev: false,
-    });
 
-    useEffect(() => {
-        const fetchData = async () => {
+    const fetchData = async () => {
         try {
             const response = await axios.get("http://localhost:3000/importProjet");
             setData(response.data);
         } catch (error) {
             console.error("Error fetching data: ", error);
         }
-        };
+    };
 
+    useEffect(() => {
         fetchData();
     }, []);
 
-    const filterProjects = (projects) => {
-        return projects.filter((project) => {
-        const matchesName = q
-            ? project.nom.toLowerCase().includes(q.toLowerCase())
-            : true;
-        const competences = project.competences || {};
-        const checkedCategories = Object.entries(categories)
-            .filter(([_, value]) => value)
-            .map(([key]) => key);
-        const matchesCategories =
-            checkedCategories.length > 0
-            ? checkedCategories.some((category) => competences[category])
-            : true;
-
-        return matchesName && matchesCategories;
-        });
-
+    const handleDelete = async (uid) => {
+        try {
+            await axios.delete(`http://localhost:3000/progressProjet/${uid}`);
+            // Refresh the data after deletion
+            fetchData();
+        } catch (error) {
+            console.error("Error deleting project: ", error);
+        }
     };
 
     const Index = () => {
         return (
-            filterProjects(data).map((obj) => (
-            <ProjetCardAdminView key={obj.id} data={obj} />
-            ))
+            <>
+            {data.map((obj) => (
+                <div>
+                    <ProjetCardAdminView key={obj.id} data={obj}/>
+                    <button onClick={() => handleDelete(obj.uid)}>En cours</button>
+                </div>
+            ))}
+            </>
         )
     }
 
