@@ -52,7 +52,6 @@ export default function Login(){
                             <input type="checkbox" name="remember-me" id="rememberMeCheckbox" />
                             <label htmlFor="rememberMeCheckbox">Se souvenir de moi</label>
                         </div>
-                        <a href="">Créer un compte</a>
                     </div>
 
                 </form>
