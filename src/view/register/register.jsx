@@ -14,11 +14,11 @@ export default function Register() {
 
         if (userPassword !== userConfirmPassword) {
             setPasswordError('Les mots de passe ne correspondent pas');
-            return; // Stop further execution
+            return;
         }
 
         console.log("Email:", userEmail, "Password:", userPassword);
-        // Continue with form submission
+        
     };
 
     return (
@@ -47,7 +47,7 @@ export default function Register() {
                         <div className="auth-form-input">
                             <input type="password" name="userPasswordv" id="userPasswordv" placeholder=' ' autoComplete='password' required />
                             <label htmlFor="userPasswordv">Confirmer le mot de passe</label>
-                            <span id="passwordError" style={{ color: 'red', display: passwordError ? 'block' : 'none' }}>{passwordError}</span>
+                            <span className="passwordError" style={{ display: passwordError ? 'block' : 'none' }}>{passwordError}</span>
                         </div>
                     </div>
                     <input type="submit" className='auth-form-submit' value='Créer mon compte' />
