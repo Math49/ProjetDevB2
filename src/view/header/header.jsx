@@ -28,7 +28,7 @@ export default function Header() {
         <h1>ESPL Hub</h1>
       </div>
       <nav className="nav">
-        <a href="/">Ajouter un projet</a>
+        <a href="/addprojet">Ajouter un projet</a>
         {currentUser && <h2>{currentUser.email}</h2>}
         <button onClick={handleLogout}>Se déconnecter</button>
       </nav>
