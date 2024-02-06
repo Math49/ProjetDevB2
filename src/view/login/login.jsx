@@ -1,25 +1,27 @@
 import './login.scoped.scss'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react'
+import {app} from '../../firebaseConfig'
+import { useNavigate } from "react-router-dom";
+
 export default function Login(){
 
-    const formSubmit = (event) => {
-        
-        // Empêche le formulaire de s'effacer avant la récup des infos
+    const auth = getAuth(app);
+    const navigate = useNavigate();
+    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+
+    const handleSubmit = async (event) => {
         event.preventDefault();
-        
-            // Récupère les infos à l'envoi du formulaire
-            const userEmail = event.target.elements.userEmail.value
-            const userPassword = event.target.elements.userPassword.value
-            let rememberMe = false
-
-            if (event.target.elements.rememberMeCheckbox.checked) {
-                rememberMe = true
-            }
-
-            console.log("Email:", userEmail, "\nPassword:", userPassword, "\nWants to be remembered:", rememberMe);
-
-            event.target.reset();
-
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            console.log("User is logged in");
+            navigate("/"); // Redirect to home page
+        } catch (error) {
+            console.error(error);
         }
+    };
 
     return (
 
@@ -31,14 +33,14 @@ export default function Login(){
 
                 <h1>S'authentifier</h1>
 
-                <form onSubmit={formSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="auth-form-inputs">
                         <div className="auth-form-input">
-                            <input type="email" name="userEmail" id="userEmail" placeholder=' ' autoComplete='email' required />
+                            <input type="email" name="userEmail" id="userEmail" placeholder=' ' autoComplete='email' value={email} onChange={e => setEmail(e.target.value)} required />
                             <label htmlFor="userEmail">E-mail</label>
                         </div>
                         <div className="auth-form-input">
-                            <input type="password" name="userPassword" id="userPassword" placeholder=' ' autoComplete='password' required />
+                            <input type="password" name="userPassword" id="userPassword" placeholder=' ' autoComplete='password' value={password} onChange={e => setPassword(e.target.value)} required />
                             <label htmlFor="userPassword">Mot de passe</label>
                         </div>
                     </div>

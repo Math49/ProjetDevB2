@@ -99,9 +99,9 @@ a {
 
                     &:focus + label,
                     &:not(:placeholder-shown) + label {
-                      transform: translateY(-225%) translateX(-1rem);
-                      font-size: 0.9em;
-                      color: $clr-dark-blue;
+                        transform: translateY(-225%) translateX(-1rem);
+                        font-size: 0.9em;
+                        color: $clr-dark-blue;
                     }
                 }
 
@@ -114,6 +114,7 @@ a {
             border: none;
             margin: 0;
             width: 100%;
+            cursor: pointer;
 
             background-color: $clr-blue;
             padding: 1rem 2rem;
