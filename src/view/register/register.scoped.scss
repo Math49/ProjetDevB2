@@ -1,0 +1,146 @@
+@import '../../__variables.scss';
+
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    vertical-align: middle;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+body {
+    font-family: $ff-txt;
+}
+
+header {
+    display: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.login-main {
+
+    position: relative;
+    
+    min-height: 100svh;
+    
+    background: $clr-blue;
+    background: radial-gradient(circle, darken($clr-blue, 10%) 0%, $clr-blue 100%);
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    .logo {
+        aspect-ratio: 1 / 1;
+        object-fit: cover;
+        width: 200px;
+        position: absolute;
+        inset: 4rem 0 0 4rem;
+    }
+
+    .auth-form {
+        width: 500px;
+        height: 700px;
+        padding: 2rem 5rem;
+
+        background-color: $clr-white;
+        border-radius: 0 0 6.25rem 0;
+        box-shadow: 1.25rem 1.25rem 0 transparentize($clr-white, .3);
+
+        h1 {
+            margin-bottom: 4rem;
+            text-align: center;
+            color: $clr-dark-blue;
+            font-size: 40px;
+            font-weight: 600;
+        }
+
+        .auth-form-inputs {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+            margin-bottom: 3rem;
+
+            .auth-form-input {
+                position: relative;
+                display: flex;
+                flex-direction: column;
+                color: $clr-white;
+
+                label {
+                    position: absolute;
+                    bottom: 14px;
+                    left: 1rem;
+
+                    transition: 0.3s ease;
+                    
+                    pointer-events: none;
+                    font-weight: 600;
+                }
+
+                input {
+                    height: 50px;
+                    background-color: #383838;
+                    padding: 0 1rem;
+
+                    color: $clr-white;
+                    font-size: 16px;
+
+                    &:focus + label,
+                    &:not(:placeholder-shown) + label {
+                      transform: translateY(-225%) translateX(-1rem);
+                      font-size: 0.9em;
+                      color: $clr-dark-blue;
+                    }
+                }
+
+            }
+
+        }
+
+        .auth-form-submit {
+            display: inline-block;
+            border: none;
+            margin: 0;
+            width: 100%;
+
+            background-color: $clr-blue;
+            padding: 1rem 2rem;
+
+
+            text-decoration: none;
+            text-align: center;
+            font-size: 30px;
+            font-weight: 600;
+            color: $clr-white;
+        }
+
+        .auth-form-bot-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-top: .5rem;
+
+                .remember-me {
+                    display: flex;
+                    gap: .5rem;
+                }
+
+        }
+
+    }
+
+}
+
