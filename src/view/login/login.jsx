@@ -1,16 +1,27 @@
 import './login.scoped.scss'
+import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
+import React, { useState } from 'react'
+import {app} from '../../firebaseConfig'
+import { useNavigate } from "react-router-dom";
+
 export default function Login(){
 
-    // Récupère les infos à l'envoi du formulaire
-        const formSubmit = (event) => {
-            event.preventDefault();
-            
-            const userEmail = event.target.elements.userEmail.value
-            const userPassword = event.target.elements.userPassword.value
+    const auth = getAuth(app);
+    const navigate = useNavigate();
+    
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
 
-            console.log("Email:", userEmail, "Password:", userPassword);
-
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            await signInWithEmailAndPassword(auth, email, password);
+            console.log("User is logged in");
+            navigate("/"); // Redirect to home page
+        } catch (error) {
+            console.error(error);
         }
+    };
 
     return (
 
@@ -22,14 +33,14 @@ export default function Login(){
 
                 <h1>S'authentifier</h1>
 
-                <form onSubmit={formSubmit}>
+                <form onSubmit={handleSubmit}>
                     <div className="auth-form-inputs">
                         <div className="auth-form-input">
-                            <input type="email" name="userEmail" id="userEmail" placeholder=' ' autoComplete='email' required />
+                            <input type="email" name="userEmail" id="userEmail" placeholder=' ' autoComplete='email' value={email} onChange={e => setEmail(e.target.value)} required />
                             <label htmlFor="userEmail">E-mail</label>
                         </div>
                         <div className="auth-form-input">
-                            <input type="password" name="userPassword" id="userPassword" placeholder=' ' autoComplete='password' required />
+                            <input type="password" name="userPassword" id="userPassword" placeholder=' ' autoComplete='password' value={password} onChange={e => setPassword(e.target.value)} required />
                             <label htmlFor="userPassword">Mot de passe</label>
                         </div>
                     </div>
