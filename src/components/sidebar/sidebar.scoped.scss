@@ -1,0 +1,58 @@
+@import '../../_variables.scss';
+
+.sidebar {
+    position: relative;
+    inset: auto;
+    width: 20%;
+    min-height: $height-main;
+
+    background-color: $clr-white;
+
+    .sidebar-menu {
+
+        list-style-type: none;
+        padding-top: 2.5rem;
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+    
+        .sidebar-menu-item {
+
+            margin-block: 1.5rem;
+
+            &:first-of-type {
+                margin-top: 0;
+            }
+            
+            
+            a {
+                padding-block: 1rem;
+                padding-left: 3rem;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                gap: 1rem;
+    
+            }
+
+            transition: border-right .1s ease-in-out;
+
+            &:hover, &:focus {
+                border-right: solid 3px $clr-orange;
+            }
+
+        }
+
+        .change-details {
+            position: absolute;
+            inset: auto 0 1.5rem 0;
+            text-align: center;
+            text-decoration: underline;
+        }
+
+    }
+    
+
+}
