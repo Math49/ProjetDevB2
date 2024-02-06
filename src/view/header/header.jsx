@@ -2,6 +2,7 @@ import "./header.scss";
 import { useLocation } from "react-router-dom";
 import { useAuth } from "../../AuthContext";
 import { getAuth, signOut } from 'firebase/auth';
+import React, { useState, useEffect } from "react";
 
 export default function Header() {
   const location = useLocation();
@@ -19,6 +20,9 @@ export default function Header() {
     }
   };
 
+  const [isModalOpen, setModalOpen] = useState(false);
+  const toggleModal = () => setModalOpen(!isModalOpen);
+
   return (
     <header style={{ display: location.pathname === "/login" || location.pathname === "/register" ? "none" : "flex" }}>
       <div className="title">
@@ -29,8 +33,19 @@ export default function Header() {
       </div>
       <nav className="nav">
         <a href="/">Ajouter un projet</a>
-        {currentUser && <h2>{currentUser.email}</h2>}
-        <button onClick={handleLogout}>Se déconnecter</button>
+        {currentUser && <span className="current-email">{currentUser.email}</span>}
+        <div className="profile-picture" onClick={toggleModal}>
+          <img src="../../../defaultavatar.png" alt="" className="user-profile-picture" />
+        </div>
+        {isModalOpen && (
+                    <div className="context-menu-profile-actions-wrapper">
+                        <span className="context-menu-profile-close" onClick={toggleModal} >&times;</span>
+                        <div className="context-menu-profile-actions">
+                            <button onClick={() => window.location.href = '/admin-dashboard'}>Accéder au dashboard</button>
+                            <button onClick={handleLogout}>Se déconnecter</button>
+                        </div>
+                    </div>
+                )}
       </nav>
     </header>
   );
