@@ -3,20 +3,20 @@ import { getAuth, signInWithEmailAndPassword } from 'firebase/auth';
 import React, { useState } from 'react'
 import {app} from '../../firebaseConfig'
 import { useNavigate } from "react-router-dom";
+import { useAuth } from '../../AuthContext';
 
 export default function Login(){
 
     const auth = getAuth(app);
     const navigate = useNavigate();
-    
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            await signInWithEmailAndPassword(auth, email, password);
-            console.log("User is logged in");
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            console.log("User is logged in ", userCredential.user.uid);
             navigate("/"); // Redirect to home page
         } catch (error) {
             console.error(error);
