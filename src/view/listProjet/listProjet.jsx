@@ -25,7 +25,7 @@ export default function ListProjet() {
 
     return  <div className="card-container">
                 {data.map((obj) =>
-                    <ProjetCard data={obj}/>
+                    <ProjetCard key={obj.id} data={obj}/>
                 )}
             </div>
 }
