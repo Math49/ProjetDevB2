@@ -33,7 +33,7 @@ export default function Header() {
       </div>
       <nav className="nav">
         <a href="/addprojet">Ajouter un projet</a>
-        {user && <span className="current-email">{user.prenom}</span>}
+        {user && <span className="current-name">{user.prenom}</span>}
         <div className="profile-picture" onClick={toggleModal}>
           <img src="../../../defaultavatar.png" alt="" className="user-profile-picture" />
         </div>
