@@ -17,6 +17,7 @@ export default function Register() {
         const userConfirmPassword = event.target.elements.userPasswordv.value;
         const prenom = event.target.elements.userfirstName.value;
         const nom = event.target.elements.userName.value;
+        const role = event.target.elements.userRole.value;
 
         if (userPassword.length < 6) {
             setPasswordError('Le mot de passe doit contenir au moins 6 caractères');
@@ -30,13 +31,13 @@ export default function Register() {
         
         setPasswordError('');
 
-        console.log(userEmail, userPassword, prenom, nom);
         try {
             await axios.post('http://localhost:3000/signup', {
                 userEmail,
                 userPassword,
                 prenom,
-                nom
+                nom,
+                role
             });
 
             // Redirect to /admin-dashboard/comptes
@@ -59,6 +60,14 @@ export default function Register() {
                 <h1>S'authentifier</h1>
                 <form onSubmit={formSubmit}>
                     <div className="auth-form-inputs">
+                        <div className="auth-form-input">
+                            <select name="userRole" id="userRole" required>
+                                <option value="">Choisissez un rôle</option>
+                                <option value="etudiant">Étudiant</option>
+                                <option value="admin">Admin</option>
+                            </select>
+                            <label htmlFor="userRole">Rôle</label>
+                        </div>
                         <div className="auth-form-input">
                             <input type="email" name="userEmail" id="userEmail" placeholder=' ' autoComplete='email' required />
                             <label htmlFor="userEmail">E-mail</label>

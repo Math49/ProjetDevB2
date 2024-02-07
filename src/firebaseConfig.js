@@ -2,13 +2,13 @@ import { initializeApp } from 'firebase/app';
 import 'firebase/firestore';
 
 const firebaseConfig = {
-    apiKey: "AIzaSyD51ZYYsuOCCrgtSkz4mCOqXQjKpwh3Zzk",
-    authDomain: "eslp-hub.firebaseapp.com",
-    projectId: "eslp-hub",
-    storageBucket: "eslp-hub.appspot.com",
-    messagingSenderId: "760155440334",
-    appId: "1:760155440334:web:ee337515c4d3afb044bc9f",
-    measurementId: "G-ZSRB1RDSCZ"
+    apiKey: "AIzaSyDjogVkLypTt2D3lTFB-zb96zNd59vuz2U",
+    authDomain: "espl-c563e.firebaseapp.com",
+    projectId: "espl-c563e",
+    storageBucket: "espl-c563e.appspot.com",
+    messagingSenderId: "981245955058",
+    appId: "1:981245955058:web:be1d39b200d6a516f2796b",
+    measurementId: "G-KBJBMEV0LF"
 };
 
 export const app = initializeApp(firebaseConfig);

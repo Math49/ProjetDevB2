@@ -1,0 +1,121 @@
+@import '../../__variables.scss';
+
+.etudiant-dashboard {
+    
+    min-height: $height-main;
+    background-color: $clr-grey;
+    font-family: $ff-txt;
+
+    display: flex;
+
+    @media screen and (width <= $mobile) {
+        flex-direction: column;
+    }
+
+    .view-dashboard {
+
+        position: relative;
+
+        padding: 2rem;
+
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+
+        max-height: calc($height-main);
+        overflow-y: scroll;
+
+        @media screen and (width <= $tablet) {
+            padding-top: 0;
+        }
+
+        .burger {
+
+            position: sticky;
+            inset: .00000000001rem auto auto .5rem;
+            width: 100%;
+            display: none;
+
+            
+            
+            .MuiSvg-burger {
+                width: 32px;
+                aspect-ratio: 1/1;
+            }
+            
+            @media screen and (width <= $tablet) {
+                display: flex;
+                justify-content: center;
+                background-color: $clr-grey;
+                padding-block: 1rem;
+                cursor: pointer;
+                z-index: 50;
+
+                path {
+                    transform: rotate(0deg) translate(0, 0);
+                    opacity: 1;
+                    transition: all .3s ease-in-out;
+                }
+                  
+                &.menu-opened {
+                    path:nth-child(1) {
+                        transform: rotate(45deg) translate(5px, -17px);
+                        transition: transform 0.3s ease-in-out;
+                    }
+                    
+                    path:nth-child(2) {
+                        opacity: 0;
+                        transition: opacity 0.3s ease-in-out;
+                    }
+                    
+                    path:nth-child(3) {
+                        transform: rotate(-45deg) translate(-13px, 11px);;
+                        transition: transform 0.3s ease-in-out;
+                    }
+
+                }
+
+
+
+            }
+
+        }
+
+        .comptes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+
+            .comptes-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 2rem;
+                justify-content: center;
+            }
+
+            .add-account {
+                background-color: $clr-white;
+                padding: 1rem 2rem;
+                border-radius: 10px;
+                font-size: 22px;
+
+                .add-user-icon {
+                    margin-right: 2rem;
+                }
+
+                transition: transform 0.3s ease;
+    
+                &:hover {
+                    transform: scale(1.025);
+                }
+            }
+
+        }
+
+
+}
+}
+

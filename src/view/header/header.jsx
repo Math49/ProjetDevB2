@@ -2,15 +2,53 @@ import "./header.scss";
 import { useLocation } from "react-router-dom";
 import { getAuth, signOut } from 'firebase/auth';
 import React, { useState, useEffect } from "react";
-import UserData from "../../components/userData.js";
+import axios from "axios";
+import { useAuth } from "../../AuthContext";
+import { useNavigate } from "react-router-dom";
+
+let user = null;
+let dashboardLink = "";
 
 export default function Header() {
   const location = useLocation();
 
-  const user = UserData();
-  const auth = getAuth();
+  const { currentUser } = useAuth();
 
-  const handleLogout = async () => {
+  const auth = getAuth();
+  const [data, setData] = useState();
+
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                const response = await axios.get('http://localhost:3000/importUser');
+                setData(response.data);
+            } catch (error) {
+                console.error("Error fetching data: ", error);
+            }
+        };
+        fetchData();
+    }, []);
+    
+
+    if(currentUser && data){
+
+      const FiltredUser = data.filter(item => item.uid === currentUser.uid);
+      
+      user = FiltredUser[0];
+
+      if(user.roles === "admin"){
+        dashboardLink = "/admin-dashboard"
+      } else if(user.roles === "etudiant"){
+        dashboardLink = "/etudiant-dashboard"
+      }
+    }
+    
+  const navigate = useNavigate();
+  const handleDashboard = () => {
+    navigate(dashboardLink);
+  }
+
+  const handleLogout = async () => { 
     try {
       await signOut(auth);
       console.log('Déconnexion réussie');
@@ -20,6 +58,7 @@ export default function Header() {
     }
   };
 
+  
 
   const [isModalOpen, setModalOpen] = useState(false);
   const toggleModal = () => setModalOpen(!isModalOpen);
@@ -42,7 +81,7 @@ export default function Header() {
                     <div className="context-menu-profile-actions-wrapper">
                         <span className="context-menu-profile-close" onClick={toggleModal} >&times;</span>
                         <div className="context-menu-profile-actions">
-                            <button onClick={() => window.location.href = '/admin-dashboard'}>Accéder au dashboard</button>
+                            <button onClick={handleDashboard}>Accéder au dashboard</button>
                             <button onClick={handleLogout}>Se déconnecter</button>
                         </div>
                     </div>
