@@ -22,7 +22,7 @@ export default function AdminUserCard(data) {
                 <div className="user-card-role">
                     {user.roles}
                 </div>
-                <span class="context-menu" onClick={toggleModal} style={{ display: isModalOpen ? 'none' : 'inline' }}>...</span>
+                <span className="context-menu" onClick={toggleModal} style={{ display: isModalOpen ? 'none' : 'inline' }}>...</span>
                 {isModalOpen && (
                     <div className="context-menu-actions-wrapper">
                         <span className="context-menu-close" onClick={toggleModal} >&times;</span>

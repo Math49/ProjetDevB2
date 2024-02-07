@@ -1,12 +1,12 @@
 import "./header.scss";
 import { useLocation } from "react-router-dom";
-import { useAuth } from "../../AuthContext";
 import { getAuth, signOut } from 'firebase/auth';
+import UserData from "../../components/userData.js";
 
 export default function Header() {
   const location = useLocation();
-  const { currentUser } = useAuth();
 
+  const user = UserData();
   const auth = getAuth();
 
   const handleLogout = async () => {
@@ -29,7 +29,7 @@ export default function Header() {
       </div>
       <nav className="nav">
         <a href="/addprojet">Ajouter un projet</a>
-        {currentUser && <h2>{currentUser.email}</h2>}
+        {user && <h2>{user.prenom}</h2>}
         <button onClick={handleLogout}>Se déconnecter</button>
       </nav>
     </header>
