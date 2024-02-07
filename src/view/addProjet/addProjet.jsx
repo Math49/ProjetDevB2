@@ -56,32 +56,31 @@ export default function AddProjet() {
     return (
         <div>
             <form onSubmit={handleSubmit} className="formulaire">
-                <label>
-                    Concept:
-                    <input type="text" name="concept" value={projetData.concept} onChange={handleInputChange} />
+                <label htmlFor="name">
+                    Nom du projet :
+                    <input type="text" name="nom" id="name" value={projetData.nom} onChange={handleInputChange} />
                 </label>
-                <br />
-                <label>
-                    Description:
-                    <textarea name="description" value={projetData.description} onChange={handleInputChange} />
+                <label htmlFor="description">
+                    Description :
+                    <textarea name="description" id="description" value={projetData.description} onChange={handleInputChange} />
                 </label>
-                <br />
-                <label>
-                    Nom:
-                    <input type="text" name="nom" value={projetData.nom} onChange={handleInputChange} />
+                <label htmlFor="objectifs">
+                    Objectifs :
+                    <input type="text" name="objectifs" id="objectifs" value={projetData.objectifs} onChange={handleInputChange} />
                 </label>
-                <br />
-                <label>
-                    Objectifs:
-                    <input type="text" name="objectifs" value={projetData.objectifs} onChange={handleInputChange} />
-                </label>
-                <br />
-                <label>
-                    Compétences:
-                    <input type="checkbox" name="dev" checked={projetData.competences.dev} onChange={handleInputChange} /> Dev
-                    <input type="checkbox" name="design" checked={projetData.competences.design} onChange={handleInputChange} /> Design
-                </label>
-                <br />
+                    <div className="competences">
+                        Compétences :
+                        <div className="competences-container">
+                            <label htmlFor="devCheckbox">
+                                Dev
+                                <input type="checkbox" name="dev" id="devCheckbox" checked={projetData.competences.dev} onChange={handleInputChange} />
+                            </label>
+                            <label htmlFor="designCheckbox">
+                                Design
+                                <input type="checkbox" id="designCheckbox" name="design" checked={projetData.competences.design} onChange={handleInputChange} />
+                            </label>
+                        </div>
+                        </div>
                 <button className="submit-button"  type="submit">Ajouter</button>
             </form>
         </div>

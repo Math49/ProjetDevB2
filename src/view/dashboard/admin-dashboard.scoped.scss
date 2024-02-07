@@ -38,6 +38,14 @@
             background-color: $clr-orange;
             color: $clr-white;
             border-radius: 5px;
+            border: solid 1px $clr-orange;
+            transition: all .2s ease-in-out;
+
+            &:hover {
+                background-color: $clr-white;
+                color: $clr-orange;
+            }
+
         }
 
         .burger {

@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import ProjetCardAdminView from "../../components/projetCard/projetCardAdminView";
 import Sidebar from "../../components/sidebar/sidebar-etudiant";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Notifications from "../../components/dashboardOnglet/notifications";
+import NotificationsEtudiant from "../../components/dashboardOnglet/notifications-etudiant";
 import Current from "../../components/dashboardOnglet/current";
 import Finished from "../../components/dashboardOnglet/finished";
 
@@ -67,7 +67,7 @@ export default function EtudiantDashboard() {
                 </div>
                 <Routes>
                     <Route path="/" element={<Index/>} />
-                    <Route path="/notifications" element={<Notifications/>} />
+                    <Route path="/notifications" element={<NotificationsEtudiant/>} />
                     <Route path="/en-cours" element={<Current/>} />
                     <Route path="/projets-finis" element={<Finished/>} />
                 </Routes>

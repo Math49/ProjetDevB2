@@ -89,7 +89,7 @@ header {
 
     .context-menu-profile-actions-wrapper {
         position: absolute;
-        inset: calc($header-size - 2rem) 30px auto auto;
+        inset: calc($header-size - 2rem) 50px auto auto;
         z-index: 500;
 
         background-color: $clr-white;
