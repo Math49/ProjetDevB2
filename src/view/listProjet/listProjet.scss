@@ -51,17 +51,18 @@
             @each $id, $color in $clrs-filtre {
                     
                 .#{$id}-color {
-                  background-color: $color;
-                  border: solid 2px $color;
+                    background-color: $clr-white;
+                    border: solid 2px $color;
+                    color: $color;
                 }
-
+                
                 input[type="checkbox"]:checked ~ label.#{$id}-color {
                     box-sizing: border-box;
-                    color: $color;
-
+                    
+                    color: $clr-white;
+                    background-color: $color;
                     font-weight: 600;
 
-                    background-color: $clr-white;
                 }
             }
 
@@ -80,7 +81,6 @@
                     border: solid 2px;
 
                     text-align: center;
-                    color: $clr-white;
     
                 }
     
@@ -130,6 +130,8 @@
 
     button{
         border: unset;
+        height: fit-content;
+        width: fit-content;
     }
 }
 
