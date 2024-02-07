@@ -11,7 +11,8 @@ $ff-txt: Roboto;
 
 
 // Hauteur de l'écran - hauteur du header
-$height-main: calc(100svh - 160px);
+$header-size: 164px;
+$height-main: calc(100svh - $header-size);
 
 // Tailles responsives
 $tablet: 768px;
