@@ -20,6 +20,7 @@ export default function Header() {
     }
   };
 
+
   const [isModalOpen, setModalOpen] = useState(false);
   const toggleModal = () => setModalOpen(!isModalOpen);
 
