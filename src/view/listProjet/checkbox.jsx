@@ -5,7 +5,7 @@ export default class Checkbox extends Component {
     const { id, title, name, handleChange, checked } = this.props;
 
     return (
-        <div>
+        <div className="checkbox-container">
             <input
                 id={id}
                 type="checkbox"
@@ -13,7 +13,7 @@ export default class Checkbox extends Component {
                 onChange={handleChange}
                 checked={checked}
             />
-            <label htmlFor={id}>{title}</label>
+            <label htmlFor={id} className={`${id}-color`}>{title}</label>
         </div>
         );
     }
