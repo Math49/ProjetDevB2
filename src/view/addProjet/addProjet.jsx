@@ -1,8 +1,12 @@
 import "./addProjet.scss";
 import axios from 'axios';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function AddProjet() {
+
+    const navigate = useNavigate();
+
     const [projetData, setProjetData] = useState({
         concept: null,
         description: null,
@@ -39,8 +43,13 @@ export default function AddProjet() {
 
         try {
             await axios.put('http://localhost:3000/addProjet', projetData);
+            navigate("/");
+
+            window.alert('Projet créé avec succès');
+            
         } catch (error) {
-            console.error(error);
+            console.error('Erreur lors de la création du Projet', error);
+            window.alert('Erreur lors de la création du Projet');
         }
     };
 
