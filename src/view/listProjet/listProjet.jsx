@@ -60,42 +60,49 @@ export default function ListProjet() {
     return (
         <div className="listing-projet">
             <div className="filtre-menu">
-                <h2>Filtrer les projets</h2>
-                <div className="search-wrapper">
-                    <label htmlFor="search-form">
-                        <input
-                            type="search"
-                            name="search-form"
-                            id="search-form"
-                            className="search-input"
-                            placeholder="Search for..."
-                            value={q}
-                            onChange={(e) => setQ(e.target.value)}
+                <div className="filtre-menu-content">
+                    <h2>Filtrer les projets</h2>
+                    <div className="search-wrapper">
+                        <label htmlFor="search-form">
+                            <input
+                                type="search"
+                                name="search-form"
+                                id="search-form"
+                                className="search-input"
+                                placeholder="Rechercher..."
+                                value={q}
+                                onChange={(e) => setQ(e.target.value)}
+                            />
+                        </label>
+                    </div>
+                    <h3>Compétences</h3>
+                    <div className="checkbox-list">
+
+                        <Checkbox
+                            id="design"
+                            title="Design"
+                            name="design"
+                            checked={categories.design}
+                            handleChange={handleChange}
                         />
-                    </label>
+                        <Checkbox
+                            id="dev"
+                            title="Dev"
+                            name="dev"
+                            checked={categories.dev}
+                            handleChange={handleChange}
+                        />
+
+                    </div>
                 </div>
-                <Checkbox
-                    id="design"
-                    title="Design"
-                    name="design"
-                    checked={categories.design}
-                    handleChange={handleChange}
-                />
-                <Checkbox
-                    id="dev"
-                    title="Dev"
-                    name="dev"
-                    checked={categories.dev}
-                    handleChange={handleChange}
-                />
             </div>
-            <div className="card-container">
-                {filterProjects(data).map((obj) =>
-                    <button key={obj.uid} onClick={() => navigateToProject(obj)}>
-                        <ProjetCard key={obj.uid} data={obj}/>
-                    </button>
-                )}
-            </div>
+                <div className="card-container">
+                    {filterProjects(data).map((obj) =>
+                        <button key={obj.uid} onClick={() => navigateToProject(obj)}>
+                            <ProjetCard key={obj.uid} data={obj}/>
+                        </button>
+                    )}
+                </div>
         </div>
     );
 }

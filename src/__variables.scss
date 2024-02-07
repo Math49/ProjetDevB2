@@ -17,3 +17,16 @@ $height-main: calc(100svh - $header-size);
 // Tailles responsives
 $tablet: 768px;
 $mobile: 480px;
+
+// Couleurs filtre
+$clrs-filtre: (
+  dev: #C42D2D,
+  design: #2D72C4,
+  marketing: #9D2DC4,
+  webdesign: #1DBA23,
+  communication: #C84DDC,
+);
+
+@function color-for-id($id) {
+    @return map-get($clrs-filtre, $id);
+  }
