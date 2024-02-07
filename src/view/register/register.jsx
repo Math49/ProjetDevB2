@@ -92,10 +92,6 @@ export default function Register() {
                     </div>
                     <input type="submit" className='auth-form-submit' value='Créer mon compte' />
                     <div className="auth-form-bot-row">
-                        <div className="remember-me">
-                            <input type="checkbox" name="remember-me" id="rememberMeCheckbox" />
-                            <label htmlFor="rememberMeCheckbox">Se souvenir de moi</label>
-                        </div>
                     </div>
                 </form>
             </div>
