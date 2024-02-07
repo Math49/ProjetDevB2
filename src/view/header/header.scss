@@ -17,6 +17,12 @@ header {
         flex-direction: column;
     }
 
+    .espl-logo {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
     .title{
         display: flex;
         align-items: center;
@@ -50,10 +56,9 @@ header {
             color: $clr-white;
             text-align: center;
             text-decoration: none;
-            margin: 0 10px;
             font-weight: 700;
             font-size: 20px;
-            padding: 15px;
+            padding: 1rem;
             border-radius: 20px;
             
             &:hover{
@@ -65,6 +70,7 @@ header {
         .profile-picture {
 
             cursor: pointer;
+            padding-inline: 1rem;
 
             .user-profile-picture {
                 aspect-ratio: 1/1;
@@ -78,6 +84,7 @@ header {
     .current-name {
         color: $clr-white;
         font-size: 18px;
+        padding-inline: 1rem;
     }
 
     .context-menu-profile-actions-wrapper {
