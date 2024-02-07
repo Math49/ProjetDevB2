@@ -19,8 +19,6 @@ export default function ProjetCard({ data }) {
         <div className="card">
             <div className="title-row">
                 <h2 className="card-title">{data.nom}</h2>
-                <span>-</span>
-                <p>{data.auteur}</p>
             </div>
             <div className="objectif row">
                 <h3>Objectifs</h3>
