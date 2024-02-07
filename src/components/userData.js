@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState} from 'react';
 import axios from 'axios';
 import { useAuth } from '../AuthContext';
 
@@ -6,8 +6,8 @@ export default function UserData() {
 
     const {currentUser} = useAuth();
     const [data, setData] = useState([]);
+    if(currentUser){
 
-    useEffect(() => {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://localhost:3000/importUser');
@@ -17,9 +17,9 @@ export default function UserData() {
             }
         };
         fetchData();
-    }, []);
 
-    const User = data.filter(item => item.uid === currentUser.uid);
-    
-    return User[0];
+        const User = data.filter(item => item.uid === currentUser.uid);
+        
+        return User[0];
+    }
 }
